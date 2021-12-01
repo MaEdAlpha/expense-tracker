@@ -1,13 +1,17 @@
 import './ExpenseItem.css';
 
-function ExpenseItem() {
+function ExpenseItem(props) {
+  const expenseDate = new Date(Date.now()+20000000000).toLocaleDateString();
+  const expenseTitle = 'Computer';
+  const expenseAmount = 10000000.88;
+
   return (
     <div className="expense-item ">
-      <div> January 1st 1970</div>
+      <div>{props.date}</div>
       <div className="expense-item__description">
-        <h2>Computer</h2>
+        <h2>{props.title}</h2>
       </div>
-      <div className="expense-item__price" >$1,000,000</div>
+      <div className="expense-item__price" >{props.amount}</div>
     </div>
   );
 }
