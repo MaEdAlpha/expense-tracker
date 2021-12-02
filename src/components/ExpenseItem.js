@@ -1,13 +1,13 @@
+import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
+import './ExpenseDate.css';
 
 function ExpenseItem(props) {
-  const expenseDate = new Date(Date.now()+20000000000).toLocaleDateString();
-  const expenseTitle = 'Computer';
-  const expenseAmount = 10000000.88;
 
   return (
     <div className="expense-item ">
-      <div>{props.date}</div>
+      {/* self closing element if no data passed, inherits props from parent */}
+      <ExpenseDate date={props.date}/>
       <div className="expense-item__description">
         <h2>{props.title}</h2>
       </div>
