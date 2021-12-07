@@ -1,4 +1,5 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 import Card from "./components/UI/Card";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <h2>Let's get started!</h2>
       {/* Passing Key:Value pairs into your function. Good practice to label it props so you know it's a custom component */}
       <Card className="expenses">
+        <NewExpense />
         <Expenses expenses={expenses}></Expenses>
       </Card>
     </div>
