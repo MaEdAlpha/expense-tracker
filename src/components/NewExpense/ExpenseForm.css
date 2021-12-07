@@ -24,6 +24,6 @@
   
   .new-expense__actions {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     text-align: right;
   }
