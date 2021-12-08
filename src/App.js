@@ -1,9 +1,10 @@
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import ExpenseFilter from "./components/ExpenseFilter/ExpenseFilter"
 import Card from "./components/UI/Card";
 
 function App() {
-  const expenses = [
+  let expenses = [
     {
       id: "e1",
       title: "Computer",
@@ -19,12 +20,27 @@ function App() {
       date: new Date(Date.now()),
     },
   ];
+
+  const addNewExpense = (expense) => { 
+   log('Expense added');
+    console.log(expense);
+  }
+
+  const selectedYear = (year) => {
+    log('Year selected');
+    console.log(year);
+  }
+
+  const log = (string) => {
+    console.log(string + ' show in App.js');
+  }
+
   return (
     <div>
       <h2>Let's get started!</h2>
-      {/* Passing Key:Value pairs into your function. Good practice to label it props so you know it's a custom component */}
+      <NewExpense onSubmitNewExpense={addNewExpense} />
       <Card className="expenses">
-        <NewExpense />
+        <ExpenseFilter onSelectYear={selectedYear} />
         <Expenses expenses={expenses}></Expenses>
       </Card>
     </div>
