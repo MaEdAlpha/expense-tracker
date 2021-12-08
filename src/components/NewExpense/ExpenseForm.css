@@ -27,3 +27,12 @@
     align-items: flex-end;
     text-align: right;
   }
+
+  .time-icon{
+    display: inline-flex;
+    padding: 10px;
+    color: white;
+    background: #510674;
+    margin-left: 5px;
+    cursor: pointer;
+  }
