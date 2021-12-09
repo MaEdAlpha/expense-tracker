@@ -22,11 +22,11 @@ const ExpensesChart = (props) => {
 
     for( const expense of props.expenses){
         const monthIndex = expense.date.getMonth();
-        console.log(expense);
         chartDataPoints[monthIndex].value += expense.amount;
     }
 
-    return <Chart dataPoints={chartDataPoints} />;
+    return <Chart dataPoints={chartDataPoints}
+                  maxValue={props.maxValue} />;
 }
 
 

@@ -6,23 +6,40 @@ import ExpensesChart from "../Expenses/ExpensesChart";
 import "./Expenses.css";
 
 function Expenses(props) {
-  const [selectedFilterYear, setSelectedFilterYear] = useState("2021");
 
-  const filteredExpensesArray = props.expenses.filter(
-    (expense) => expense.date.getFullYear().toString() === selectedFilterYear
-  );
+  const now = new Date(Date.now());
+  const dateObject = {
+                      year: now.getFullYear(),
+                      month: now.getMonth(),
+                      totalDays: new Date(now.getFullYear(), now.getMonth(), 0).getDate()
+                    }
+  
+  const [selectedFilterMonth, setSelectedFilterMonth] = useState( dateObject.month.toString() );
+  const [monthlyBudgetInput, setMonthlyBudgetInput] = useState(35000);
 
-  const selectedYearHandler = (year) => {
-    setSelectedFilterYear(year);
+  const filteredExpensesArray = props.expenses.filter( (expense) => expense.date.getMonth().toString() === selectedFilterMonth );
+
+
+  const selectedMonthHandler = (month) => {
+    setSelectedFilterMonth(month);
   };
+
+  const selectedMonthlyBudgetHandler = (monthlyBudget) => {
+    setMonthlyBudgetInput(monthlyBudget);
+    console.log("Budget Updated in Parent Expense.js file");
+  }
 
   return (
     <div>
       <ExpenseFilter
-        selected={selectedFilterYear}
-        onSelectYear={selectedYearHandler}
+        selected={selectedFilterMonth}
+        onSelectMonthHandler={selectedMonthHandler}
+        onSetMonthlyBudget={selectedMonthlyBudgetHandler}
+        budget={monthlyBudgetInput}
       />
-      <ExpensesChart expenses={filteredExpensesArray} />
+      <ExpensesChart 
+        expenses={filteredExpensesArray}
+        maxValue={monthlyBudgetInput} />
       <ExpensesList 
         items={filteredExpensesArray}
       />
