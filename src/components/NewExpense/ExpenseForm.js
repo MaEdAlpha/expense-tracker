@@ -24,12 +24,13 @@ const ExpenseForm = (props) =>{
         event.preventDefault();
         const expenseData = {
             title: titleInput,
-            amount: amountInput,
+            amount: +amountInput,
             date: new Date(dateInput)
         };
 
         props.onSubmitExpenseData(expenseData);
-        alert('Expense Added!');
+        //TODO Toggle state. 
+        props.onExpenseFormToggle();
         setTitleInput('');
         setAmountInput('');
         setDateInput('');
@@ -66,6 +67,7 @@ const ExpenseForm = (props) =>{
                 </Card>
             </div>
             <div className="new-expense__actions">
+                <button type='button' onClick={props.onExpenseFormToggle}> Cancel</button>
                 <button type='submit'>Add Expense</button>
             </div>
         </div>

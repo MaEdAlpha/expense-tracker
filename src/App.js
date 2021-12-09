@@ -1,6 +1,6 @@
+import { React, useState } from 'react';
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-import ExpenseFilter from "./components/ExpenseFilter/ExpenseFilter"
 import Card from "./components/UI/Card";
 
 function App() {
@@ -8,40 +8,34 @@ function App() {
     {
       id: "e1",
       title: "Computer",
-      amount: 9671111,
-      date: new Date(Date.now()),
+      amount: 2000,
+      date: new Date(2021, 9, 31),
     },
-    { id: "e2", title: "Mouse", amount: 21.99, date: new Date(Date.now()) },
-    { id: "e3", title: "Keyboard", amount: 19.99, date: new Date(Date.now()) },
+    { id: "e2", title: "Mouse", amount: 1200, date: new Date(2021, 11, 13) },
+    { id: "e3", title: "Keyboard", amount: 500, date: new Date(2021, 10, 17) },
     {
       id: "e4",
       title: "Monitor 99in.",
-      amount: 19.99,
-      date: new Date(Date.now()),
+      amount: 100,
+      date: new Date(2021, 8, 15)
     },
   ];
 
-  const addNewExpense = (expense) => { 
-   log('Expense added');
-    console.log(expense);
+  const [updatedExpenses, setUpdatedExpenses]=useState(expenses);
+  
+  const addNewExpenseHandler = (expense) => { 
+    setUpdatedExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+    
   }
-
-  const selectedYear = (year) => {
-    log('Year selected');
-    console.log(year);
-  }
-
-  const log = (string) => {
-    console.log(string + ' show in App.js');
-  }
-
+  
   return (
     <div>
       <h2>Let's get started!</h2>
-      <NewExpense onSubmitNewExpense={addNewExpense} />
+      <NewExpense onSubmitNewExpense={addNewExpenseHandler} />
       <Card className="expenses">
-        <ExpenseFilter onSelectYear={selectedYear} />
-        <Expenses expenses={expenses}></Expenses>
+        <Expenses expenses={updatedExpenses}></Expenses>
       </Card>
     </div>
   );
