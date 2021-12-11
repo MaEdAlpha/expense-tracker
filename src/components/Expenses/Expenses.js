@@ -39,7 +39,8 @@ function Expenses(props) {
       />
       <ExpensesChart 
         expenses={filteredExpensesArray}
-        maxValue={monthlyBudgetInput} />
+        maxValue={monthlyBudgetInput} 
+        />
       <ExpensesList 
         items={filteredExpensesArray}
       />

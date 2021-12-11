@@ -2,6 +2,8 @@ import "./ExpenseFilter.css";
 import {React, useState} from 'react';
 
 const ExpenseFilter = (props) => {
+  const [budgetButton, setBudgetButton] = useState(false);
+
     const [monthlyBudgetInput, setMonthlyBudget] = useState(+props.budget);
         
     const onSelectMonth = (event) => {
@@ -11,10 +13,15 @@ const ExpenseFilter = (props) => {
     const handlerMonthlyBudgetSubmit = (event) => {
       event.preventDefault();
       props.onSetMonthlyBudget(monthlyBudgetInput);
-      console.log('Updated Budget');
+      let showString = 'Budget set to ' + monthlyBudgetInput;
+      setTimeout(()=>{
+        setBudgetButton(false);
+      },500);
+      alert(showString);
     }
 
     const monthlyBudgetHandler = (event) => {
+      setBudgetButton(true);
       setMonthlyBudget(event.target.value);
     }
 
@@ -41,7 +48,7 @@ const ExpenseFilter = (props) => {
         <form onSubmit={handlerMonthlyBudgetSubmit}>
           <label>Monthly Budget</label>
           <input type='number' value={monthlyBudgetInput} min='0' max='100000' step='1000' onChange={monthlyBudgetHandler} ></input>
-          <button type='submit'>Set budget</button>
+           {budgetButton === true && <button type='submit'>Set budget</button>}
         </form>
       </div>
     </div>
