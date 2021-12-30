@@ -22,3 +22,19 @@
     font-weight: bold;
     border-radius: 6px;
   }
+
+  form{
+      display: inline-flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+  }
+
+  .monthly-budget__wrapper{
+    display: inline-flex;
+    justify-content: flex-end;
+  }
+
+  .monthly-budget__input{
+    text-align: right;
+  }

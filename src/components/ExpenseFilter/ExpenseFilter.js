@@ -47,8 +47,10 @@ const ExpenseFilter = (props) => {
       <div className="expenses-filter__control">
         <form onSubmit={handlerMonthlyBudgetSubmit}>
           <label>Monthly Budget</label>
-          <input type='number' value={monthlyBudgetInput} min='0' max='100000' step='1000' onChange={monthlyBudgetHandler} ></input>
-           {budgetButton === true && <button type='submit'>Set budget</button>}
+          <div class='monthly-budget__wrapper'>
+            <input class="monthly-budget__input" type='number' value={monthlyBudgetInput} min='0' max='100000' step='1000' onChange={monthlyBudgetHandler} ></input>
+            {budgetButton === true && <button type='submit'>Set budget</button>}
+          </div>
         </form>
       </div>
     </div>
