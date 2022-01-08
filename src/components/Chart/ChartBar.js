@@ -15,7 +15,6 @@ const ChartBar = (props) => {
                 <div className='chart_bar___label'>{props.label}</div>
             </div>
         </div>
-
     ) 
 }  
 
