@@ -49,7 +49,6 @@ const ExpenseForm = (props) =>{
             setDateInput(formattedDate);
         }
 
-
     return <form onSubmit={handlerSubmit}>
         <div className="new-expense__controls">
             <div className="new-expense__control">
