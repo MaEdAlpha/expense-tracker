@@ -11,18 +11,20 @@
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
+    color: ghostwhite;
   }
   
   .new-expense__control input {
     font: inherit;
     padding: 0.5rem;
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: 2px solid #4f6fa7;
     width: 20rem;
     max-width: 100%;
   }
   
   .new-expense__actions {
+    width: fit-content;
     display: flex;
     align-items: flex-end;
     text-align: right;
@@ -32,7 +34,7 @@
     display: inline-flex;
     padding: 10px;
     color: white;
-    background: #510674;
+    background: #010407;
     margin-left: 5px;
     cursor: pointer;
   }

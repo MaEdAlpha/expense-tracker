@@ -11,7 +11,7 @@ const ChartBar = (props) => {
     return (
         <div className='chart-bar'>
             <div className='chart-bar__inner'>
-                {barHeight !== '0%' && <span class='chart-bar__percent'>{barHeight} </span>}
+                {barHeight !== '0%' && <span className='chart-bar__percent'>{barHeight} </span>}
                 <div className='chart-bar__fill' style={{height:barHeight}}>
                 </div>
             </div>

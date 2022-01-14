@@ -10,21 +10,25 @@
   width: 20px;
   border: 1px solid #313131;
   border-radius: 12px;
-  background-color: #c3b4f3;
+  background-color:  #b4c4f3;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: relative;
 }
 
 .chart-bar__percent {
   font-size: 0.8rem;
   font-weight: 800;
   transform: rotate(90deg);
+  position: absolute;
+  top: 50%;
+  width: 100%;
 }
 
 .chart-bar__fill {
-  background-color: #4826b9;
+  background-color: #009688;
   width: 100%;
   transition: all 0.3s ease-out;
 }

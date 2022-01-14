@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css';
-import Card from '../UI/Card';
 
 const ExpenseForm = (props) =>{
     const [titleInput, setTitleInput] = useState('');
@@ -36,12 +35,14 @@ const ExpenseForm = (props) =>{
         setDateInput('');
     }
 
-    const getTimeNow = () => {
+    const getTimeNow = (event) => {
+        event.preventDefault();
             let value = new Date(Date.now());
             let year = value.getFullYear();
             let month = value.getMonth()  + 1;
             let day = value.getDate().toString();
-            day = day.length < 2 ? '0'+day:day;
+            day = day.length < 2 ? '0'+day : day;
+            month = (month.toString()).length < 2 ? '0'+month: month;
 
             const formattedDate =  year + '-' + month + '-' + day;
             console.log(value);
@@ -62,9 +63,7 @@ const ExpenseForm = (props) =>{
             <div className="new-expense__control">
                 <label> Date</label>
                 <input type='date' value={dateInput} min="2021-01-01" max="2022-12-31" onChange={dateChangeHandler}/>
-                <Card className="time-icon">
-                    <div onClick={getTimeNow}>TimeNow</div>
-                </Card>
+                <button className="time-icon" onClick={getTimeNow}>TimeNow</button>
             </div>
             <div className="new-expense__actions">
                 <button type='button' onClick={props.onExpenseFormToggle}> Cancel</button>

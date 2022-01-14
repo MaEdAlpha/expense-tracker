@@ -1,40 +1,68 @@
 .expenses-filter {
-    color: white;
-    padding: 0 1rem;
-  }
-  
-  .expenses-filter__control {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1rem 0;
-  }
-  
-  .expenses-filter label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .expenses-filter select {
-    font: inherit;
-    padding: 0.5rem 3rem;
-    font-weight: bold;
-    border-radius: 6px;
+  color: white;
+  padding: 0 1rem;
+}
+
+.expenses-filter__control {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.expenses-filter label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.expenses-filter select {
+  font: inherit;
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+form {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.monthly-budget__wrapper {
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.monthly-budget__input {
+  background-color: #223c69;
+  border-radius: 10px;
+  border-style: double;
+  color: white;
+  padding: 0.4rem 0.5rem;
+  text-align: center;
+}
+
+.monthly-budget__input::-webkit-outer-spin-button,
+.monthly-budget__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 
-  form{
-      display: inline-flex;
-      justify-content: space-between;
-      width: 100%;
-      align-items: center;
-  }
+.budget-set__button{
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border: 1px solid #fffdfd;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+}
 
-  .monthly-budget__wrapper{
-    display: inline-flex;
-    justify-content: flex-end;
-  }
+.budget-set__button:hover{
+  background-color: #4871b9;
+  border-color: #010407;
+}
 
-  .monthly-budget__input{
-    text-align: right;
-  }

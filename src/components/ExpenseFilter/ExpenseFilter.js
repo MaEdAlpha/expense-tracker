@@ -21,8 +21,14 @@ const ExpenseFilter = (props) => {
     }
 
     const monthlyBudgetHandler = (event) => {
+
       setBudgetButton(true);
       setMonthlyBudget(event.target.value);
+    }
+
+    const hideButtons = () => {
+      setBudgetButton(false);
+      setMonthlyBudget(+props.budget);
     }
 
   return (
@@ -46,10 +52,11 @@ const ExpenseFilter = (props) => {
       </div>
       <div className="expenses-filter__control">
         <form onSubmit={handlerMonthlyBudgetSubmit}>
-          <label>Monthly Budget</label>
-          <div class='monthly-budget__wrapper'>
-            <input class="monthly-budget__input" type='number' value={monthlyBudgetInput} min='0' max='100000' step='1000' onChange={monthlyBudgetHandler} ></input>
-            {budgetButton === true && <button type='submit'>Set budget</button>}
+          <label>Monthly Budget: {props.budget} THB</label>
+          <div className='monthly-budget__wrapper'>
+            <input className="monthly-budget__input" type='number' value={monthlyBudgetInput} min='0' max='100000' step='1000' onChange={monthlyBudgetHandler} ></input>
+            {budgetButton === true && <button className="budget-set__button" type='submit'>Set budget</button>}
+            {budgetButton === true && <button className="budget-set__button" onClick={hideButtons}>Cancel</button>}
           </div>
         </form>
       </div>
